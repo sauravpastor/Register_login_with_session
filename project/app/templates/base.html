@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+ <style>
+   *{
+    margin: 0;
+    padding: 0;
+   }
+    header{
+        background-color: #45708df5;
+        padding: 25px;
+        position: fixed;
+        width: 100%;
+    }
+    header ul{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    header ul li{
+        list-style-type: none;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    header ul li a{
+        text-decoration: none;
+        color: white;
+    }
+   
+    .head1 #hul{
+        display: flex;
+        justify-content: space-around;
+    }
+    @media screen and (max-width: 720px){
+      header{
+        background-color: #45708df5;
+        /* padding: 15px; */
+        position: fixed;
+        width: 93%;
+    }
+      header ul li{
+        list-style-type: none;
+        font-size: 10px;
+        font-weight: bold;
+    }
+    header ul{
+        display: flex;
+        justify-content:space-around;
+    }
+    }
+ </style>
+<body>
+   
+    {% if context.Nm %}
+    <header class="head1">
+       <ul id="hul">
+        <li style="color: white;">{{context.Nm}}</li>
+        <li><a href="{% url 'home' %}">Logout</a></li>
+       </ul>
+
+    </header>
+
+    {% else %}
+    <header>
+        <ul>
+         <li><a href="{% url 'home' %}">Home</a></li>
+         <li><a href="{% url 'about' %}">About</a></li>
+         <li><a href="{% url 'contact' %}">Contact</a></li>
+         <li><a href="{% url 'register' %}">Registartion</a></li>
+         <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+ 
+     </header>
+
+     {% endif %}
+     <br> <br> <br> <br>
+    {% block content %}
+
+
+    {% endblock %}
+
+
+    <footer class="footer" >
+        <div>
+            <h3>Info</h3>
+            <p>Track Your Order</p>
+            <p>Our Blocks</p>
+            <p>Privacy policy</p>
+            <p>Shipping</p>
+            <p>Contact Us</p>
+            <p>Community</p>
+          </div>
+          <div>
+            <h3>About</h3>
+            <p>Histroy</p>
+            <p>Our Team</p>
+            <p>Services</p>
+            <p>Company</p>
+            <p>Wholesale</p>
+            <p>Retail</p>
+          </div>
+          <div>
+            <h3>Women Shoes</h3>
+            <p>Track Your Order</p>
+            <p>Our Blog</p>
+            <p>Privacy policy</p>
+            <p>Shipping</p>
+            <p>Contact Us</p>
+            <p>Help</p>
+          </div>
+          <div>
+            <h3>Popular</h3>
+            <p>Prices Drop</p>
+            <p>New Products</p>
+            <p>Best Sales</p>
+            <p>Stores</p>
+            <p>Login</p>
+            <p>Cart</p>
+          </div>
+          <div>
+            <h3>Mens Collection</h3>
+            <p>Delivery</p>
+            <p>About Us</p>
+            <p>Shoes</p>
+            <p>Contact Us</p>
+          </div>
+          <div>
+            <h3>Get In Touch</h3>
+            <p>
+              Stylish Online Store 123 <br />
+              Main Street, gaffarMarket - <br />
+              dehli. Call us: (+33) 800 456 <br />
+              789-987
+            </p>
+            <h4>contact@yourwebsite.com</h4> <br /> <br />
+          </div>
+        </div>
+    </footer>
+</body>
+</html>

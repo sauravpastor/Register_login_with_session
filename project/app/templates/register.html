@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<style>
+    
+    form{
+        display: flex;
+        flex-direction: column;
+        padding: 60px;
+        border: 1px solid;
+        width: 30%;
+        height: 350px;
+        background-color: rgb(209, 205, 205);
+        border-radius: 10px;
+    }
+    form input{
+        border-radius: 5px;
+        height: 30px;
+        width: 350px;
+        background-color:  #45708df5;
+        color: white;
+    }
+    ::placeholder{text-align: center ; 
+         color: white;}
+    form button{
+        width: 170px;
+        padding: 5px;
+        background-color:  #45708df5;
+        color: white;
+        border-radius: 20px;
+    }
+    @media screen and (max-width: 720px) {
+
+       form{ 
+        display: flex ;
+        flex-direction: column;
+        padding: 60px;
+        border: 1px solid;
+        width: 40%;
+        background-color: rgb(209, 205, 205);
+        border-radius: 10px;
+        height: 350px;
+                  }
+    }
+    form input{
+        border-radius: 5px;
+        padding:5px ;
+        width: 220px;
+        background-color:  #45708df5;
+        color: white;
+    }
+
+  
+</style>
+<body>
+
+    {{key}}
+    <br> <br>
+    <center>
+    <div id="frm">
+    <form action="{% url 'registerdata' %}" method="post">
+         {% csrf_token %} 
+        <input type="text" name="Name" placeholder="Name">  <br>  <br>
+        <input type="email" name="Email" placeholder="Email" > <br>  <br>
+        <input type="text" name="Contact" placeholder="Contact"> <br>  <br>
+        <input type="password" name="Password" placeholder="Password" > <br>  <br>
+        <input type="password" name="Cpassword" placeholder="CPassword"> <br>  <br>
+        <button type="submit">Submit</button>
+    </form>
+    <a href="{% url 'login' %}">Login</a>
+</div>
+</center>
+</body>
+</html>
+{% endblock %}
